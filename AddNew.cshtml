@@ -1,0 +1,32 @@
+﻿@model ProjectMVC.Models.Supplier
+
+@{
+    ViewBag.Title = "AddNew";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddNew</h2>
+
+@using (Html.BeginForm("Save", "Supplier"))
+{
+<div class="form-group">
+    @Html.LabelFor(s=>s.FirstName)
+    @Html.TextBoxFor(s=>s.FirstName,new { @class = "form-control" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(s => s.LastName)
+    @Html.TextBoxFor(s => s.LastName, new { @class = "form-control" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(s => s.CompanyName)
+    @Html.TextBoxFor(s => s.CompanyName, new { @class = "form-control" })
+</div>
+<div>
+    @Html.HiddenFor(s=>s.SupplierID)
+</div>
+<div class="form-group">
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="reset" class="btn btn-primary">Reset</button>
+</div>
+}
+

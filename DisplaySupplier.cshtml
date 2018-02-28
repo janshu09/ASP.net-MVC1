@@ -1,0 +1,33 @@
+﻿@using ProjectMVC.Models
+@model List<Supplier>
+
+@{
+    ViewBag.Title = "DisplaySupplier";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.ActionLink("Create New Supplier", "AddNew", "Supplier");
+
+<h2>DisplaySupplier</h2>
+
+@if (!Model.Any())
+{
+    <span>No Supplier</span>
+}
+else
+{
+    <table class="table table-bordered-table-hover">
+        <tr>
+            <th>Supplier ID</th>
+            <th>Supplier FirstName</th>
+        </tr>
+        @foreach (var supplier in Model.ToList())
+        {
+        <tr>
+            <td>@supplier.SupplierID</td>
+            <td>@Html.ActionLink(supplier.FirstName,"EditSupplier","Supplier",new { id=supplier.SupplierID},null)</td>
+        </tr>
+        }
+    </table>
+}
+
